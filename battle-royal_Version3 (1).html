@@ -1,0 +1,26 @@
+function applyCharacterLook(fighterId, character) {
+  const fighter = $(fighterId);
+  const lookClasses = [
+    "iron-man", "hulk", "batman", "superman",
+    "harry-potter", "chhota-bheem"
+  ];
+
+  fighter.classList.remove(...lookClasses);
+
+  const looks = {
+    "Iron Man": "iron-man",
+    "Hulk": "hulk",
+    "Batman": "batman",
+    "Superman": "superman",
+    "Harry Potter": "harry-potter",
+    "Chhota Bheem": "chhota-bheem"
+  };
+
+  if (looks[character[0]]) {
+    fighter.classList.add(looks[character[0]]);
+  }
+}
+
+// Add these in resetRound(), after assigning player and enemy:
+applyCharacterLook("playerFighter", player);
+applyCharacterLook("enemyFighter", enemy);
